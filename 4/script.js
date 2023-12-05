@@ -40,20 +40,25 @@ function Task3() {
 
 function Task4() {
     console.log("Завдання 4:");
-    user.showData = function () {
-        console.log("Дані користувача:", this.ID, this.login, this.password);
+
+    user.__proto__.showData = function () {
+        console.log("Дані користувача (прототип):", this.ID, this.login, this.password);
     };
 }
+
 
 function Task5() {
     const user2 = Object.create(user);
     user2.isAdmin = true;
-    user2.showData = function () {
-        console.log("Дані користувача (вдосконалено):", this.ID, this.login, this.password, "Адміністратор:", this.isAdmin);
+
+    user2.__proto__.showData = function () {
+        console.log("Дані користувача (вдосконалено з прототипу):", this.ID, this.login, this.password, "Адміністратор:", this.isAdmin);
     };
+
     console.log("Завдання 5:");
     user2.showData();
 }
+
 
 function Task6() {
     class UserClass {
